@@ -1,8 +1,2 @@
-export type Project = {
-  number: string;
-  company: string;
-  year: string;
-  title: string;
-  description: string;
-  tags: string[];
-};
+export * from "./project";
+export * from "./experience";

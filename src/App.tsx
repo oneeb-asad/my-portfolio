@@ -1,6 +1,4 @@
-import Navbar from '@components/Navbar'
-import Hero from '@components/Hero'
-import Work from '@components/Work'
+import { Navbar, Hero, Work, Experience, Contact } from '@components'
 
 function App() {
   return (
@@ -8,6 +6,8 @@ function App() {
       <Navbar />
       <Hero />
       <Work />
+      <Experience />
+      <Contact />
     </main>
   )
 }
