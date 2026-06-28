@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import type { Experience, SkillCategory } from '@/types'
 
 const experiences: Experience[] = [
@@ -14,50 +15,64 @@ const skillCategories: SkillCategory[] = [
     { name: 'Tools', skills: ['Git', 'GitHub', 'Xcode', 'Android Studio'] },
 ]
 
-function Experience() {
+export default function Experience() {
     return (
-        <section id="experience" className="py-24 border-t border-gray-100">
+        <section id="experience" className="py-24 border-t border-gray-100 dark:border-gray-800">
             <div className="max-w-5xl mx-auto px-6">
 
-                <h2 className="text-3xl font-bold tracking-tight text-gray-900 mb-16">
+                <motion.h2
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5 }}
+                    className="text-3xl font-bold tracking-tight mb-16"
+                >
                     Experience
-                </h2>
+                </motion.h2>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-16">
 
-                    {/* Experience list */}
                     <div className="space-y-8">
-                        {experiences.map((exp) => (
-                            <div key={exp.company} className="flex gap-4">
+                        {experiences.map((exp, i) => (
+                            <motion.div
+                                key={exp.company}
+                                initial={{ opacity: 0, x: -16 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.5, delay: i * 0.1 }}
+                                className="flex gap-4"
+                            >
                                 <span className="text-xs text-gray-400 font-mono w-20 shrink-0 pt-1">
                                     {exp.period}
                                 </span>
                                 <div>
-                                    <p className="text-sm font-medium text-gray-900">{exp.role}</p>
+                                    <p className="text-sm font-medium">{exp.role}</p>
                                     <p className="text-sm text-gray-400">{exp.company}</p>
                                 </div>
-                            </div>
+                            </motion.div>
                         ))}
                     </div>
 
-                    {/* Skills */}
                     <div className="space-y-8">
-                        {skillCategories.map((category) => (
-                            <div key={category.name}>
+                        {skillCategories.map((category, i) => (
+                            <motion.div
+                                key={category.name}
+                                initial={{ opacity: 0, x: 16 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.5, delay: i * 0.1 }}
+                            >
                                 <p className="text-xs text-gray-400 uppercase tracking-widest mb-3">
                                     {category.name}
                                 </p>
                                 <div className="flex flex-wrap gap-2">
                                     {category.skills.map((skill) => (
-                                        <span
-                                            key={skill}
-                                            className="text-xs bg-gray-100 text-gray-600 px-3 py-1 rounded-full"
-                                        >
+                                        <span key={skill} className="text-xs border border-gray-200 dark:border-gray-700 text-gray-500 dark:text-gray-400 px-3 py-1 rounded-full">
                                             {skill}
                                         </span>
                                     ))}
                                 </div>
-                            </div>
+                            </motion.div>
                         ))}
                     </div>
 
@@ -66,5 +81,3 @@ function Experience() {
         </section>
     )
 }
-
-export default Experience

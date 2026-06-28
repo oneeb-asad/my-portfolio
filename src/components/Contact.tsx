@@ -1,70 +1,94 @@
-function Contact() {
+import { motion } from 'framer-motion'
+
+export default function Contact() {
     return (
-        <section id="contact" className="py-24 border-t border-gray-100">
+        <section id="contact" className="py-24 border-t border-gray-100 dark:border-gray-800">
             <div className="max-w-5xl mx-auto px-6">
 
                 <div className="max-w-xl">
-                    <h2 className="text-3xl font-bold tracking-tight text-gray-900 mb-4">
+                    <motion.h2
+                        initial={{ opacity: 0, y: 16 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5 }}
+                        className="text-3xl font-bold tracking-tight mb-4"
+                    >
                         Let's build something
-                    </h2>
-                    <p className="text-gray-500 mb-10">
-                        Open to React Native roles. Feel free to reach out.
-                    </p>
+                    </motion.h2>
 
-                    {/* Contact details */}
-                    <div className="space-y-3 mb-10">
-                        <a href="mailto:sheikhoneeb@icloud.com" className="flex items-center gap-3 text-gray-600 hover:text-gray-900 transition-colors">
+                    <motion.p
+                        initial={{ opacity: 0, y: 16 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: 0.1 }}
+                        className="text-gray-500 dark:text-gray-400 mb-10"
+                    >
+                        Open to React Native roles in the UK. Feel free to reach out.
+                    </motion.p>
+
+                    <motion.div
+                        initial={{ opacity: 0, y: 16 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: 0.2 }}
+                        className="space-y-3 mb-10"
+                    >
+                        <a href="mailto:sheikhoneeb@icloud.com" className="block text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors">
                             sheikhoneeb@icloud.com
                         </a>
-                        <a href="tel:+447729474256" className="flex items-center gap-3 text-gray-600 hover:text-gray-900 transition-colors">
+                        <a href="tel:+447729474256" className="block text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors">
                             +44 7729 474256
                         </a>
-                        <a href="tel:+923205429414" className="flex items-center gap-3 text-gray-600 hover:text-gray-900 transition-colors">
-                            +92 320 542 9414
-                        </a>
-                    </div>
+                    </motion.div>
 
-                    {/* Social links */}
-                    <div className="flex items-center gap-6 mb-12">
-                        <a href="https://github.com/oneeb-asad" target="_blank" rel="noreferrer" className="text-sm text-gray-500 hover:text-gray-900 transition-colors">
-                            GitHub
+                    <motion.div
+                        initial={{ opacity: 0, y: 16 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: 0.3 }}
+                        className="flex items-center gap-6 mb-12"
+                    >
+                        <a href="https://github.com/oneeb-asad" target="_blank" rel="noreferrer" className="text-sm text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">
+                            GitHub ↗
                         </a>
-                        <a href="https://linkedin.com/in/oneeb-asad" target="_blank" rel="noreferrer" className="text-sm text-gray-500 hover:text-gray-900 transition-colors">
-                            LinkedIn
+                        <a href="https://linkedin.com/in/oneeb-asad" target="_blank" rel="noreferrer" className="text-sm text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">
+                            LinkedIn ↗
                         </a>
-                    </div>
+                    </motion.div>
 
-                    {/* Message form */}
-                    <div className="space-y-4">
+                    <motion.div
+                        initial={{ opacity: 0, y: 16 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: 0.4 }}
+                        className="space-y-4"
+                    >
                         <input
                             type="text"
                             placeholder="Your name"
-                            className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:border-gray-400 transition-colors"
+                            className="w-full border border-gray-200 dark:border-gray-700 bg-transparent rounded-xl px-4 py-3 text-sm placeholder-gray-400 focus:outline-none focus:border-gray-400 dark:focus:border-gray-500 transition-colors"
                         />
                         <input
                             type="email"
                             placeholder="Your email"
-                            className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:border-gray-400 transition-colors"
+                            className="w-full border border-gray-200 dark:border-gray-700 bg-transparent rounded-xl px-4 py-3 text-sm placeholder-gray-400 focus:outline-none focus:border-gray-400 dark:focus:border-gray-500 transition-colors"
                         />
                         <textarea
                             placeholder="Your message"
                             rows={4}
-                            className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:border-gray-400 transition-colors resize-none"
+                            className="w-full border border-gray-200 dark:border-gray-700 bg-transparent rounded-xl px-4 py-3 text-sm placeholder-gray-400 focus:outline-none focus:border-gray-400 dark:focus:border-gray-500 transition-colors resize-none"
                         />
-                        <button className="bg-gray-900 text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-gray-700 transition-colors">
+                        <button className="bg-gray-900 dark:bg-white text-white dark:text-gray-900 px-6 py-3 rounded-full text-sm font-medium hover:bg-gray-700 dark:hover:bg-gray-200 transition-colors">
                             Send message
                         </button>
-                    </div>
+                    </motion.div>
                 </div>
 
-                {/* Footer */}
                 <p className="text-xs text-gray-400 mt-16">
-                    2026 Oneeb Asad — built with React Native energy. UK · PSW visa Jan 2028
+                    © 2026 Oneeb Asad — built with React Native energy. UK · PSW visa → Jan 2028
                 </p>
 
             </div>
         </section>
     )
 }
-
-export default Contact
