@@ -20,7 +20,7 @@ export default function Hero() {
                     React Native Engineer · TypeScript · GraphQL · AWS
                 </motion.p>
 
-                <motion.h1 {...fadeUp(0.3)} className="text-5xl sm:text-6xl font-bold tracking-tight leading-tight mb-6">
+                <motion.h1 {...fadeUp(0.3)} className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-tight mb-6">
                     I build polished mobile apps{' '}
                     <span className="text-gray-400 dark:text-gray-500">people use every day.</span>
                 </motion.h1>
@@ -30,7 +30,7 @@ export default function Hero() {
                     and healthcare. Currently consulting on a React Native social app end-to-end.
                 </motion.p>
 
-                <motion.div {...fadeUp(0.5)} className="flex items-center gap-4 mb-12">
+                <motion.div {...fadeUp(0.5)} className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-12">
                     <a href="#work" className="bg-gray-900 dark:bg-white text-white dark:text-gray-900 px-6 py-3 rounded-full text-sm font-medium hover:bg-gray-700 dark:hover:bg-gray-200 transition-colors">
                         View work
                     </a>
@@ -38,10 +38,6 @@ export default function Hero() {
                         Get in touch
                     </a>
                 </motion.div>
-
-                <motion.p {...fadeUp(0.6)} className="text-xs text-gray-400">
-                    🇬🇧 UK PSW visa — eligible to work without sponsorship through Jan 2028
-                </motion.p>
 
             </div>
         </section>

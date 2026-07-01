@@ -41,7 +41,7 @@ export default function Work() {
         <section id="work" className="py-24 border-t border-gray-100 dark:border-gray-800">
             <div className="max-w-5xl mx-auto px-6">
 
-                <div className="flex items-end justify-between mb-16">
+                <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2 mb-10">
                     <motion.h2
                         initial={{ opacity: 0, y: 16 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -51,7 +51,7 @@ export default function Work() {
                     >
                         Selected work
                     </motion.h2>
-                    <span className="text-sm text-gray-400">{projects.length} shipped apps</span>
+                    {/* <span className="text-sm text-gray-400">{projects.length} shipped apps</span> */}
                 </div>
 
                 <div className="divide-y divide-gray-100 dark:divide-gray-800">
