@@ -1,91 +1,59 @@
-import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
+import { Moon, Sun } from 'lucide-react'
+import { Badge } from '@/components/ui/badge'
+import { Button } from '@/components/ui/button'
 import type { DarkModeProps } from '@/types'
 
 const links = [
-    { label: 'About', href: '#about' },
     { label: 'Work', href: '#work' },
-    { label: 'Experience', href: '#experience' },
+    { label: 'About', href: '#about' },
     { label: 'Contact', href: '#contact' },
 ]
 
 export default function Navbar({ dark, setDark }: DarkModeProps) {
-    const [menuOpen, setMenuOpen] = useState(false)
-
     return (
-        <motion.nav
-            initial={{ y: -20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.5 }}
-            className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-gray-950/80 backdrop-blur-sm border-b border-gray-100 dark:border-gray-800"
+        <motion.header
+            initial={{ opacity: 0, y: -16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="fixed top-0 inset-x-0 z-50 bg-[#fdf6f0]/80 dark:bg-[#0f1b3d]/80 backdrop-blur-md border-b border-[#0f1b3d]/10 dark:border-[#fdf6f0]/10"
         >
-            <div className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
+            <nav className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+                <a href="#hero" className="font-display font-bold tracking-tight text-lg text-[#0f1b3d] dark:text-[#fdf6f0]">
+                    oneeb.
+                </a>
 
-                <span className="text-lg font-semibold tracking-tight">Oneeb.</span>
-
-                {/* Desktop links */}
-                <div className="hidden md:flex items-center gap-8">
-                    <ul className="flex items-center gap-8 text-sm text-gray-500 dark:text-gray-400">
+                <div className="flex items-center gap-10">
+                    <div className="hidden sm:flex items-center gap-8">
                         {links.map((link) => (
-                            <li key={link.href}>
-                                <a href={link.href} className="hover:text-gray-900 dark:hover:text-white transition-colors">
-                                    {link.label}
-                                </a>
-                            </li>
+                            <a
+                                key={link.href}
+                                href={link.href}
+                                className="text-sm text-[#0f1b3d]/70 dark:text-[#fdf6f0]/70 hover:text-[#0f1b3d] dark:hover:text-[#fdf6f0] transition-colors"
+                            >
+                                {link.label}
+                            </a>
                         ))}
-                    </ul>
-                    <button
-                        onClick={() => setDark(!dark)}
-                        className="w-9 h-9 rounded-full border border-gray-200 dark:border-gray-700 flex items-center justify-center text-gray-500 dark:text-gray-400 hover:border-gray-400 transition-colors"
-                    >
-                        {dark ? '☀' : '☾'}
-                    </button>
+                    </div>
+
+                    <div className="flex items-center gap-3">
+                        <Badge variant="pill" className="hidden sm:inline-flex normal-case tracking-normal">
+                            <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse" />
+                            Open to work
+                        </Badge>
+
+                        <Button
+                            type="button"
+                            variant="outline"
+                            size="icon"
+                            onClick={() => setDark(!dark)}
+                            aria-label="Toggle dark mode"
+                        >
+                            {dark ? <Sun size={16} /> : <Moon size={16} />}
+                        </Button>
+                    </div>
                 </div>
-
-                {/* Mobile right side */}
-                <div className="flex md:hidden items-center gap-3">
-                    <button
-                        onClick={() => setDark(!dark)}
-                        className="w-9 h-9 rounded-full border border-gray-200 dark:border-gray-700 flex items-center justify-center text-gray-500 dark:text-gray-400"
-                    >
-                        {dark ? '☀' : '☾'}
-                    </button>
-
-                    <button
-                        onClick={() => setMenuOpen(!menuOpen)}
-                        className="w-9 h-9 rounded-full border border-gray-200 dark:border-gray-700 flex flex-col items-center justify-center gap-1.5"
-                    >
-                        <span className={`block w-4 h-0.5 bg-gray-600 dark:bg-gray-400 transition-all duration-300 ${menuOpen ? 'rotate-45 translate-y-2' : ''}`} />
-                        <span className={`block w-4 h-0.5 bg-gray-600 dark:bg-gray-400 transition-all duration-300 ${menuOpen ? 'opacity-0' : ''}`} />
-                        <span className={`block w-4 h-0.5 bg-gray-600 dark:bg-gray-400 transition-all duration-300 ${menuOpen ? '-rotate-45 -translate-y-2' : ''}`} />
-                    </button>
-                </div>
-
-            </div>
-
-            {/* Mobile menu */}
-            <AnimatePresence>
-                {menuOpen && (
-                    <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: 'auto' }}
-                        exit={{ opacity: 0, height: 0 }}
-                        transition={{ duration: 0.3 }}
-                        className="md:hidden border-t border-gray-100 dark:border-gray-800 bg-white/95 dark:bg-gray-950/95 backdrop-blur-sm"
-                    >
-                        <ul className="flex flex-col px-6 py-4 gap-4">
-                            {links.map((link) => (
-                                <li key={link.href}>
-                                    <a href={link.href} onClick={() => setMenuOpen(false)} className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
-                                        {link.label}
-                                    </a>
-                                </li>
-                            ))}
-                        </ul>
-                    </motion.div>
-                )}
-            </AnimatePresence>
-
-        </motion.nav>
+            </nav>
+        </motion.header>
     )
 }
