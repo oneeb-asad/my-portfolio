@@ -1,16 +1,16 @@
 import { useState } from 'react'
-import { Navbar, Hero, Work, Experience, Contact } from '@components'
+import { Navbar, Hero, Work, About, Contact } from '@components'
 
 function App() {
   const [dark, setDark] = useState(false)
 
   return (
     <div className={dark ? 'dark' : ''}>
-      <main className="bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100 transition-colors duration-300" style={{ fontFamily: 'Inter, sans-serif' }}>
+      <main className="bg-[#fdf6f0] dark:bg-[#0f1b3d] text-[#0f1b3d] dark:text-[#fdf6f0] transition-colors duration-300">
         <Navbar dark={dark} setDark={setDark} />
         <Hero />
         <Work />
-        <Experience />
+        <About />
         <Contact />
       </main>
     </div>
