@@ -1,7 +1,7 @@
 export type Project = {
   number: string;
+  category: string;
   company: string;
-  year: string;
   title: string;
   description: string;
   tags: string[];
